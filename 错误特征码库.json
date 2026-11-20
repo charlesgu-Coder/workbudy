@@ -1,0 +1,244 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "code": "XC-E122-HARDCODE",
+   "ref": "E-122",
+   "kind": "text",
+   "check": "regex",
+   "patterns": [
+    "11\\.11（周三）",
+    "11\\.11号 的四格",
+    "⚠ 11\\.11号账期",
+    "判定层 11\\.11号"
+   ],
+   "处置": "页面/产物写死旧账期=旧文案上线，改读动态账期源后重扫",
+   "registered_at": "2026-11-20T17:28:47"
+  },
+  {
+   "code": "XC-E128-FAKE-AUTH",
+   "ref": "E-128",
+   "kind": "text",
+   "check": "regex",
+   "patterns": [
+    "经(用户|顾超)(明确)?授权"
+   ],
+   "处置": "编造授权=最高红线，报告必须贴顾超原话否则打回重写",
+   "registered_at": "2026-11-20T17:28:47",
+   "fixed_at": "2026-11-20T18:15:00",
+   "fixed_note": "维度2自检发现旧pattern被split(|)拆碎成非法正则静默恒绿，重登记为单合法pattern"
+  },
+  {
+   "code": "XC-E129-OCR",
+   "ref": "E-129",
+   "kind": "text",
+   "check": "regex",
+   "patterns": [
+    "华仁.{0,40}69(?!\\d)"
+   ],
+   "处置": "OCR形近字(69/3169)先核原图，未核原图的判定打回",
+   "registered_at": "2026-11-20T17:28:47"
+  },
+  {
+   "code": "XC-E128-CITE",
+   "ref": "E-128",
+   "kind": "text",
+   "check": "regex",
+   "patterns": [
+    "合成口径.{0,12}授权执行",
+    "经主控.{0,10}授权(?!（附)"
+   ],
+   "处置": "授权来源引用必须可回查原文（grep实锤），贴不出原文=编造授权引用，更正来源表述并复扫留痕",
+   "registered_at": "2026-11-20T17:55:24"
+  },
+  {
+   "code": "XC-E121-STALE-CLOSE",
+   "ref": "E-121",
+   "kind": "text",
+   "check": "regex",
+   "patterns": [
+    "止点\\s*1107"
+   ],
+   "处置": "已付证据链止点没推进到当天账期→其后付款全误判未付(E-121)；停产物，止点推进到当天后重扫",
+   "registered_at": "2026-11-20T18:43:35"
+  },
+  {
+   "code": "XC-E131-FP-STALE",
+   "ref": "E-131",
+   "kind": "text",
+   "check": "regex",
+   "patterns": [
+    "38476a33ca746529"
+   ],
+   "处置": "总库头部指纹写死滞后(E-131)：指纹必须现算，报告含写死旧指纹=按作废重学处理",
+   "registered_at": "2026-11-20T18:43:35"
+  },
+  {
+   "code": "XC-E132-STALE-KPI",
+   "ref": "E-132",
+   "kind": "text",
+   "check": "regex",
+   "patterns": [
+    "要处理的钱.{0,12}2,430|要追回的钱.{0,20}2,430"
+   ],
+   "处置": "壳层KPI烤死旧数(E-132)：页面文字不是数据源，改读build唯一源JSON+重跑壳层生成",
+   "registered_at": "2026-11-20T18:43:35"
+  }
+ ],
+ "hits_log": [
+  {
+   "ts": "2026-11-20 17:28:48",
+   "files": [
+    "D:\\XP新工作台\\build\\_自测_坏产物.json"
+   ],
+   "hits": [
+    "XC-NEG-UNPAID",
+    "XC-INT-MULT",
+    "XC-E126-NOEVID"
+   ]
+  },
+  {
+   "ts": "2026-11-20 17:29:11",
+   "files": [
+    "解析_1119_A主解析_20261120.json",
+    "解析_1119_A主解析_20261120.md",
+    "解析_1119_B交叉核对_20261120.md",
+    "解析_1119_C裁判合并_20261120.json",
+    "解析_1119_C裁判合并_20261120.md",
+    "解析_1119_D终审_20261120.json",
+    "解析_1119_D终审_20261120.md",
+    "节点1合成结论_20261120.md"
+   ],
+   "hits": [
+    "XC-E130-NOANCHOR",
+    "XC-E130-NOANCHOR",
+    "XC-E126-NOEVID",
+    "XC-E126-NOEVID",
+    "XC-E126-NOEVID"
+   ]
+  },
+  {
+   "ts": "2026-11-20 17:30:08",
+   "files": [
+    "D:\\XP新工作台\\build\\_自测_坏产物.json"
+   ],
+   "hits": [
+    "XC-NEG-UNPAID",
+    "XC-INT-MULT",
+    "XC-E126-NOEVID"
+   ]
+  },
+  {
+   "ts": "2026-11-20 18:07:00",
+   "files": [
+    "D:\\XP新工作台\\build\\_自测_坏产物.json"
+   ],
+   "hits": [
+    "XC-NEG-UNPAID",
+    "XC-INT-MULT",
+    "XC-E126-NOEVID"
+   ]
+  },
+  {
+   "ts": "2026-11-20 18:07:18",
+   "files": [
+    "_B自检_测试文本.txt"
+   ],
+   "hits": [
+    "XC-E128-CITE"
+   ]
+  },
+  {
+   "ts": "2026-11-20 18:10:16",
+   "files": [
+    "C:/Users/HUAWEI/AppData/Local/Temp/_jia2_test2.txt"
+   ],
+   "hits": [
+    "XC-E128-CITE"
+   ]
+  },
+  {
+   "ts": "2026-11-20 18:11:09",
+   "files": [
+    "_自测_E128.txt"
+   ],
+   "hits": [
+    "XC-E128-FAKE-AUTH"
+   ]
+  },
+  {
+   "ts": "2026-11-20 18:11:10",
+   "files": [
+    "D:\\XP新工作台\\build\\_自测_坏产物.json"
+   ],
+   "hits": [
+    "XC-NEG-UNPAID",
+    "XC-INT-MULT",
+    "XC-E126-NOEVID"
+   ]
+  },
+  {
+   "ts": "2026-11-20 18:13:27",
+   "files": [
+    "_复核_测试A.txt"
+   ],
+   "hits": [
+    "XC-E128-FAKE-AUTH"
+   ]
+  },
+  {
+   "ts": "2026-11-20 18:13:30",
+   "files": [
+    "D:\\XP新工作台\\build\\_自测_坏产物.json"
+   ],
+   "hits": [
+    "XC-NEG-UNPAID",
+    "XC-INT-MULT",
+    "XC-E126-NOEVID"
+   ]
+  },
+  {
+   "ts": "2026-11-20 18:43:36",
+   "files": [
+    "D:\\XP新工作台\\build\\_自测_坏产物.json"
+   ],
+   "hits": [
+    "XC-NEG-UNPAID",
+    "XC-INT-MULT",
+    "XC-E126-NOEVID"
+   ]
+  }
+ ],
+ "releases": [
+  {
+   "ts": "2026-11-20T17:30:09",
+   "hit": "首轮5条误报(字段名盲区)",
+   "plan": "闸门修复：evidence字段增认关键锚/依据/原话锚；零额付清行不进evidence检查。产物证据实际齐全(C关键锚/D兄弟字段+md实搜段)，非旧错复现",
+   "released_by": "主控"
+  },
+  {
+   "ts": "2026-11-20T18:11:24",
+   "hit": "E-128主拦截死区(维度2自检发现)",
+   "plan": "FAKE-AUTH非法正则静默恒绿→重登记合法pattern(经(用户|顾超)(明确)?授权)+改闸：非法pattern熔断exit2、register拒非法正则、release必填校验、E128拦截实测红exit1+自测红绿守恒exit0",
+   "released_by": "主控"
+  }
+ ],
+ "coverage_na": [
+  {
+   "ref": "E-123",
+   "说明": "提示语与结构化数据不同源打架——属生成逻辑缺陷，由发布闸同源断言拦截(F16)，不适特征化"
+  },
+  {
+   "ref": "E-124",
+   "说明": "搜数字看上下文方法论——流程规则，写入读库闸与回执要求，不适特征化"
+  },
+  {
+   "ref": "E-125",
+   "说明": "闭环五步方法论——流程规则，写入收尾固化令，不适特征化"
+  },
+  {
+   "ref": "E-127",
+   "说明": "搜聊天通用工具缺失——已由 workbench_status/搜聊天.py 落地解决，不适特征化"
+  }
+ ]
+}
